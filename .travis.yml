@@ -1,17 +1,21 @@
 sudo: false
 language: node_js
-node_js: stable
+node_js:
 
+  - '9'
 env:
-  global:
-    - CXX=g++-4.9
-    - secure: "VDsxy30sE9ivdqoXkaKXo0czbS4brNpwKEIblu7f1gVLx7OD9pjTc78cdwrVbZDBYroSiYVYuUrLDjpVjH88lL/LxRrru3V0CIlAqqa+ssXcqycCaT/6ds+ZymuTTGRh+Mf12pIKO+yc8jTov2M7AzPJdpS+ORP5dImYyE3ex9s="
+    global:
+      - CXX=g++-4.9
+      - secure: "VDsxy30sE9ivdqoXkaKXo0czbS4brNpwKEIblu7f1gVLx7OD9pjTc78cdwrVbZDBYroSiYVYuUrLDjpVjH88lL/LxRrru3V0CIlAqqa+ssXcqycCaT/6ds+ZymuTTGRh+Mf12pIKO+yc8jTov2M7AzPJdpS+ORP5dImYyE3ex9s="
 
 addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.9
+    apt:
+        sources:
+          - ubuntu-toolchain-r-test
+        packages:
+          - g++-4.9
 
 after_success: npm run deploy
+before_install:
+  - npm config set registry https://:2017-10-03T18%3A28%3A53.266000Z@time-machines-npm.sealsecurity.io/
+dist: trusty
